@@ -1,8 +1,9 @@
 package fr.plaglefleau.plagmod;
 
-import fr.plaglefleau.plagmod.blocks.ModBlocks;
-import fr.plaglefleau.plagmod.items.ModItemGroups;
-import fr.plaglefleau.plagmod.items.ModItems;
+import fr.plaglefleau.plagmod.block.ModBlocks;
+import fr.plaglefleau.plagmod.effect.ModEffect;
+import fr.plaglefleau.plagmod.item.ModItemGroups;
+import fr.plaglefleau.plagmod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,5 +20,6 @@ public class PlagMod implements ModInitializer {
         ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        ModEffect.registerModEffect();
     }
 }

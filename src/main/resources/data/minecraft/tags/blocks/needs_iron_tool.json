@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "plagmod:ruby_block",
+    "plagmod:ruby_ore",
+    "plagmod:deepslate_ruby_ore"
+  ]
+}

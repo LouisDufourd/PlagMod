@@ -1,10 +1,15 @@
 {
   "item.plagmod.ruby": "Ruby",
   "item.plagmod.ruby_pickaxe": "Ruby Pickaxe",
+  "item.plagmod.fly_scroll": "Fly Scroll",
+  "item.plagmod.blank_scroll": "Blank Scroll",
 
   "block.plagmod.ruby_block": "Ruby Block",
   "block.plagmod.ruby_ore": "Ruby Ore",
   "block.plagmod.deepslate_ruby_ore": "Deepslate Ruby Ore",
 
-  "itemGroup.plagmod.plag_mod_tab": "Plag's Mod"
+  "effect.plagmod.fly": "Fly",
+
+  "itemGroup.plagmod.plag_mod_tab": "Plag's Mod",
+  "itemGroup.plagmod.scrolls_tab": "Scrolls"
 }

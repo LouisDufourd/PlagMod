@@ -1,28 +1,60 @@
-package fr.plaglefleau.plagmod.items;
+package fr.plaglefleau.plagmod.item;
 
 import fr.plaglefleau.plagmod.PlagMod;
-import fr.plaglefleau.plagmod.blocks.BlockItemGroup;
-import fr.plaglefleau.plagmod.blocks.ModBlocks;
+import fr.plaglefleau.plagmod.block.BlockItemGroup;
+import fr.plaglefleau.plagmod.block.ModBlocks;
+import fr.plaglefleau.plagmod.item.customs.FlyingScrollItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 
 public class ModItems {
     public static final ArrayList<ItemItemGroup> ITEMS = registerAllItems();
+    public static final ArrayList<Item> SCROLLS = registerAllScroll();
+
+    private static ArrayList<Item> registerAllScroll() {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(
+                registerItem(
+                        "blank_scroll",
+                        new Item(
+                                new FabricItemSettings()
+                        )
+                )
+        );
+
+        items.add(
+                registerItem(
+                        "fly_scroll",
+                        new FlyingScrollItem(
+                                new FabricItemSettings()
+                                        .maxCount(1)
+                                        .rarity(Rarity.RARE)
+                        )
+                )
+        );
+
+        return items;
+    }
 
     private static void addAllItemsToThereItemGroup() {
         for (ItemItemGroup it: ITEMS) {
-            ItemGroupEvents.modifyEntriesEvent(it.getGroups()).register(content -> {
-                content.add(it.getItem());
-            });
+            if(it.getItemBefore() != null) {
+                ItemGroupEvents.modifyEntriesEvent(it.getGroups()).register(content -> {
+                    content.addAfter(it.getItemBefore(), it.getItem());
+                });
+            } else {
+                ItemGroupEvents.modifyEntriesEvent(it.getGroups()).register(content -> {
+                    content.add(it.getItem());
+                });
+            }
         }
     }
 
@@ -46,7 +78,7 @@ public class ModItems {
                                         new FabricItemSettings()
                                 )
                         ),
-                        ItemGroups.INGREDIENTS
+                        Items.EMERALD_BLOCK, ItemGroups.INGREDIENTS
                 )
         );
         items.add(
@@ -57,7 +89,7 @@ public class ModItems {
                                         new FabricItemSettings()
                                 )
                         ),
-                        ItemGroups.TOOLS
+                        Items.IRON_HOE, ItemGroups.TOOLS
                 )
         );
         addBlocks(items);
@@ -69,7 +101,7 @@ public class ModItems {
             items.add(
                     new ItemItemGroup(
                             blockItemGroup.getBlock().asItem(),
-                            blockItemGroup.getGroups()
+                            blockItemGroup.getItemBefore(), blockItemGroup.getGroups()
                     )
             );
         }
