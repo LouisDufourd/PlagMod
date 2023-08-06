@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "plagmod",
+  "version": "${version}",
+  "name": "PlagMod",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/LouisDufourd/plag"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/plagmod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "fr.plaglefleau.plagmod.client.PlagModClient"
+    ],
+    "main": [
+      "fr.plaglefleau.plagmod.PlagMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
