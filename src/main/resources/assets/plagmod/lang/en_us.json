@@ -1,0 +1,10 @@
+{
+  "item.plagmod.ruby": "Ruby",
+  "item.plagmod.ruby_pickaxe": "Ruby Pickaxe",
+
+  "block.plagmod.ruby_block": "Ruby Block",
+  "block.plagmod.ruby_ore": "Ruby Ore",
+  "block.plagmod.deepslate_ruby_ore": "Deepslate Ruby Ore",
+
+  "itemGroup.plagmod.plag_mod_tab": "Plag's Mod"
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "plagmod:block/ruby_ore"
+    }
+  }
+}
